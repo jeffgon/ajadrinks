@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import AuthContext from "./contexts/AuthContext"
+import UserContext from "./contexts/UserContext"
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignUpPage from "./pages/SignUpPage/SignUpPage"
+import LoginPage from "./pages/LoginPage/LoginPage";
+import HomePage from "./pages/HomePage/HomePage";
 
-function App() {
+export default function App() {
+  const [token, setToken] = useState("");
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("token", JSON.stringify(token));
+  }, [token]);
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value = {{ token, setToken }}>
+      <UserContext.Provider value= {{ user, setUser }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            <Route path="/home" element={<HomePage/>} />
+          </Routes>
+        </BrowserRouter>
+      </UserContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
-export default App;
