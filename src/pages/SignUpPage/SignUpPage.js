@@ -15,9 +15,9 @@ import { BASE_URL } from "../../constants/urls";
 // BASE_URL = http://localhost:5000
 //
 export default function SingUpPage() {
-    
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [birthdate, setBirthdate] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -26,50 +26,57 @@ export default function SingUpPage() {
   function createAccount(e) {
     e.preventDefault();
     const url = `${BASE_URL}/sign-up`;
-    const body = { name, email, password, confirmPassword };
-    console.log(body)
+    const body = { name, email, birthdate, password, confirmPassword };
+    console.log(body);
 
     const promise = axios.post(url, body);
-    promise.then(res => {
-      console.log(res)
-     // alert("Cadastro Realizado");
-      
-      navigate("/")
+    promise.then((res) => {
+      console.log(res);
+      alert("Cadastro Realizado");
+
+      navigate("/sign-in");
     });
-    promise.catch(err => console.log(err.response.data));
+    promise.catch((err) => console.log(err.response.data));
   }
   return (
     <ContainerSignUp>
       {/* <img src={logo} /> */}
 
       <form onSubmit={createAccount}>
-               <input
+        <input
           type="text"
           placeholder="Nome"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           required
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Data de nascimento DD/MM/YYYY"
+          value={birthdate}
+          onChange={(e) => setBirthdate(e.target.value)}
           required
         />
         <input
           type="password"
           placeholder="Senha"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
- 
+
         <input
           type="password"
           placeholder="Confirme a senha"
           value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
 
