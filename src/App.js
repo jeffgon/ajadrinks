@@ -6,11 +6,13 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import CartPage from "./pages/CartPage/CartPage";
 
 export default function App() {
   const [token, setToken] = useState("");
   const [user, setUser] = useState("");
-  const [cart, setCart] = useState({}); //usar cart.quantity no carrinho da navBar
+  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     localStorage.setItem("token", JSON.stringify(token));
@@ -29,8 +31,19 @@ export default function App() {
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/products" element={<HomePage />} />
             <Route
+              path="/cart"
+              element={<CartPage cart={cart} setCart={setCart} />}
+            />
+            <Route
               path="/product/:id"
-              element={<ProductPage cart={cart} setCart={setCart} />}
+              element={
+                <ProductPage
+                  cart={cart}
+                  setCart={setCart}
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                />
+              }
             />
           </Routes>
         </BrowserRouter>

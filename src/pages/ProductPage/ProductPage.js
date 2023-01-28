@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
 
-const Product = ({ cart, setCart }) => {
+const Product = ({ cart, setCart, quantity, setQuantity }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const getProduct = async () => {
