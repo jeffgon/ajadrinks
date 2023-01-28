@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { backgroundColor } from "../constants/colors"
+import { fontTexts } from "../constants/fonts";
 
 const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -30,8 +31,7 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
     background:${backgroundColor};
-    font-family: 'Raleway', sans-serif;
- 
+    font-family: ${fontTexts};
 }
  ul {
 	list-style: none;

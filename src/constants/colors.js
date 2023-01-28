@@ -1,7 +1,8 @@
-export const backgroundColor = "#8C11BE";
-export const buttonColor = "#A328D6";
+export const backgroundColor = "#8484"; //#000000
+export const buttonColor = "#BADEAD";
 export const mainColor = "#FFFFFF";
-export const txtColor = "#000000";
+export const txtColor = "#BADEAD";
 export const commentColor = "#868686";
+export const headerBackgroundColor = "#2F364E"
 
 //apenas exemplos, idendidade visual ainda não definida

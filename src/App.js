@@ -25,9 +25,9 @@ export default function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/sign-in" element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/products" element={<HomePage />} />
             <Route
               path="/product/:id"
               element={<ProductPage cart={cart} setCart={setCart} />}

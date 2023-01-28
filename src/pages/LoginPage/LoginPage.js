@@ -28,7 +28,7 @@ export default function LoginPage() {
       setToken(res.data.token);
       setUser(res.data.name);
 
-      navigate("/home");
+      navigate("/products");
     });
     promise.catch((err) => alert(err.response.data.message));
   }
