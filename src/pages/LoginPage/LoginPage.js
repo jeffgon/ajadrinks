@@ -17,7 +17,7 @@ export default function LoginPage() {
 
   function login(e) {
     e.preventDefault();
-    const url = `${BASE_URL}/sign-in`;
+    const url = `${BASE_URL}/`;
     const body = { email, password };
     console.log(body); //estrutura a enviar
 

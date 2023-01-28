@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { buttonColor, mainColor } from "../../constants/colors";
+import { fontTexts, fontTitles } from "../../constants/fonts";
 
 export const LoginContainer = styled.div`
   display: flex;
@@ -17,6 +18,10 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  input {
+    padding: 10px;
+    font-family: ${fontTexts};
+  }
   button {
     height: 45px;
     width: 100%;
@@ -39,7 +44,7 @@ export const FormContainer = styled.div`
     margin-bottom: 24px;
   }
   a {
-    font-size: 15px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 18px;
     letter-spacing: 0em;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { buttonColor, mainColor } from "../../constants/colors";
+import { fontTexts } from "../../constants/fonts";
 
 export const ContainerSignUp = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ export const ContainerSignUp = styled.div`
   padding-top: 135px;
   form {
     margin-top: 100px;
+    input {
+      padding: 10px;
+      font-family: ${fontTexts};
+    }
   }
   a {
     font-size: 15px;
@@ -25,7 +30,7 @@ export const Button = styled.button`
   height: 45px;
   width: 100%;
   border-radius: 5px;
-  border-style: none; 
+  border-style: none;
 
   font-size: 20px;
   font-weight: 700;
