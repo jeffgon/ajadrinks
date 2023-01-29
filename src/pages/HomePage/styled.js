@@ -21,3 +21,6 @@ img{
   margin-top: 10px;
 }
 `
+export const ProductsContainer = styled.div`
+width: 100%;
+`
