@@ -6,11 +6,17 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Checkout from "./pages/CheckoutPage/CheckoutPage";
 
 export default function App() {
   const [token, setToken] = useState("");
   const [user, setUser] = useState("");
   const [cart, setCart] = useState({}); //usar cart.quantity no carrinho da navBar
+  const [nameCard, setNameCard] = useState("")
+  const [numberCard, setNumberCard] = useState("")
+  const [validateCard, setValidateCard] = useState("")
+  const [cvcCard, setCvcCard] = useState("")
+  const [typePayment, setTypePayment] = useState()
 
   useEffect(() => {
     localStorage.setItem("token", JSON.stringify(token));
@@ -32,6 +38,20 @@ export default function App() {
               path="/product/:id"
               element={<ProductPage cart={cart} setCart={setCart} />}
             />
+            <Route path="/checkout" element={<Checkout 
+            nameCard={nameCard}
+            setNameCard={setNameCard}
+            NumberCard={numberCard}
+            setNumberCard={setNumberCard}
+            validateCard={validateCard}
+            setValidateCard={setValidateCard}
+            cvcCard={cvcCard}
+            setCvcCard={setCvcCard}
+            typePayment={typePayment}
+            setTypePayment={setTypePayment}
+            user={user}
+            token={token}
+            />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
