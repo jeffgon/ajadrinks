@@ -1,8 +1,9 @@
 import { CheckoutContainer, FormPaymentContainer, Titulo, Form } from "./styled";
 import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
+
 
 export default function Checkout({ 
     nameCard, 
@@ -18,12 +19,11 @@ export default function Checkout({
     user,
     token
 }){
-    
 
+    const navigate = useNavigate()
+    
     function confirmPayment(e){
         e.preventDefault()
-
-        const navigate = Navigate()
 
         const url = `${BASE_URL}/payment`
         const body = { nameCard, numberCard, validateCard, cvcCard, typePayment, user }
@@ -35,7 +35,7 @@ export default function Checkout({
         const promise = axios.post(url, body, config)
             promise.then((res) => {
                 console.log("Pagamento transferido!", res)
-                navigate("/")
+                navigate("/payment")
             })
             promise.catch((err) => {
                 console.log("Algo deu errado!", err)
@@ -43,6 +43,7 @@ export default function Checkout({
     }
 
     return (
+        
         <CheckoutContainer>
             <FormPaymentContainer>
                 <Titulo>
@@ -92,9 +93,9 @@ export default function Checkout({
                         </div>
                         <section>
                             <h1>Valor total a pagar:</h1>
-                            <p>Item 1 - R$XXXX</p>
-                            <p>Item 1 - R$XXXX</p>
-                            <p>Item 1 - R$XXXX</p>
+                            <p>Item 2 - R$XXXX</p>
+                            <p>Item 2 - R$XXXX</p>
+                            <p>Item 3 - R$XXXX</p>
                             <h2>Total: R$XXXX</h2>
                         </section>
                         <footer>

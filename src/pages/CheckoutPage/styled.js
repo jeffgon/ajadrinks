@@ -21,6 +21,32 @@ export const FormPaymentContainer = styled.div`
     }
 `
 
+export const ContainerPayment = styled.div`
+    width: 90%;
+    height: 90vh;
+    border-radius: 5px;
+    border: 2px solid gray;
+    background-color: #FBE4F5;
+    input {
+        border-radius: 5px;
+    }   
+    section {
+        margin-top: 60%;
+    }
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    button {
+        width: 50px;
+        heigth: 50px;
+        backgroud-color: ${buttonColor};
+        border-style: none;
+    }
+`
+
 export const Titulo = styled.div`
     width: 100%;
     display: flex;

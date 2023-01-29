@@ -7,6 +7,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Checkout from "./pages/CheckoutPage/CheckoutPage";
+import CartPage from "./pages/CartPage/CartPage";
+import Payment from "./pages/CheckoutPage/PaymentMade";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -17,6 +19,8 @@ export default function App() {
   const [validateCard, setValidateCard] = useState("")
   const [cvcCard, setCvcCard] = useState("")
   const [typePayment, setTypePayment] = useState()
+  // const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     localStorage.setItem("token", JSON.stringify(token));
@@ -35,8 +39,19 @@ export default function App() {
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/products" element={<HomePage />} />
             <Route
+              path="/cart"
+              element={<CartPage cart={cart} setCart={setCart} />}
+            />
+            <Route
               path="/product/:id"
-              element={<ProductPage cart={cart} setCart={setCart} />}
+              element={
+                <ProductPage
+                  cart={cart}
+                  setCart={setCart}
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                />
+              }
             />
             <Route path="/checkout" element={<Checkout 
             nameCard={nameCard}
@@ -52,6 +67,7 @@ export default function App() {
             user={user}
             token={token}
             />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
