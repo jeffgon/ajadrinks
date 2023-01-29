@@ -4,7 +4,10 @@ import { BASE_URL } from "../../constants/urls";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Header from "../../components/Heander.js"
 
 export default function HomePage(){
-    return(<>HomePage</>)
+    return(
+        <Header />
+    )
 }
