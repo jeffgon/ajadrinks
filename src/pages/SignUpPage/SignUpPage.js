@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ContainerSignUp, Button } from "./styled";
 import axios from "axios";
-//import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.png";
 import { BASE_URL } from "../../constants/urls";
 
 /*const exBody = {
@@ -40,7 +40,8 @@ export default function SingUpPage() {
   }
   return (
     <ContainerSignUp>
-      {/* <img src={logo} /> */}
+      <img src={logo} />
+      <h1>AJA Drinks</h1>
 
       <form onSubmit={createAccount}>
         <input

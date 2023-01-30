@@ -8,8 +8,20 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 135px;
+
+  h1{
+  color: ${mainColor};
+  font-family: ${fontTitles};
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  }
   form {
     margin-top: 100px;
+  }
+  img{
+    width: 150px;
   }
 `;
 
@@ -44,7 +56,7 @@ export const FormContainer = styled.div`
     margin-bottom: 24px;
   }
   a {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 700;
     line-height: 18px;
     letter-spacing: 0em;

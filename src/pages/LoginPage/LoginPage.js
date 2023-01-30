@@ -5,6 +5,7 @@ import { LoginContainer, FormContainer } from "./styled";
 import { useContext, useState } from "react";
 import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
+import logo from "../../assets/logo.png"
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -35,7 +36,8 @@ export default function LoginPage() {
 
   return (
     <LoginContainer>
-      {/*   <img src={logo} />*/}
+      <img src={logo} />
+      <h1>AJA Drinks</h1>
       <FormContainer>
         <form onSubmit={login}>
           <input

@@ -1,13 +1,24 @@
 import styled from "styled-components";
 import { buttonColor, mainColor } from "../../constants/colors";
-import { fontTexts } from "../../constants/fonts";
+import { fontTexts,fontTitles } from "../../constants/fonts";
 
 export const ContainerSignUp = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 135px;
+  padding-top: 50px;
+  img{
+    width: 150px;
+  }
+  h1{
+  color: ${mainColor};
+  font-family: ${fontTitles};
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  }
   form {
     margin-top: 100px;
     input {
