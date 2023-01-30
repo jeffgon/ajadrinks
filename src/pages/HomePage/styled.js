@@ -43,6 +43,7 @@ export const TopContainer = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${txtColor};
+  margin-top: 10px;
 
   h2{
     margin-top: 10px;
