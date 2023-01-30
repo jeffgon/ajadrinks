@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa";
 
 const CartItem = ({ cart, cartItem, setCart }) => {
   function removeItem(id) {
-    const tempCart = cart.filter((item) => item.id !== id);
+    const tempCart = cart.filter((item) => item._id !== id);
     setCart(tempCart);
   }
 
@@ -19,7 +19,10 @@ const CartItem = ({ cart, cartItem, setCart }) => {
         </div>
       </div>
 
-      <FaTrash className="remove-btn" onClick={() => removeItem(cartItem.id)} />
+      <FaTrash
+        className="remove-btn"
+        onClick={() => removeItem(cartItem._id)}
+      />
     </Wrapper>
   );
 };
@@ -35,6 +38,16 @@ const Wrapper = styled.div`
   img {
     width: 100px;
     margin-right: 7px;
+    border-radius: 5px;
+  }
+
+  h5 {
+    font-weight: 700;
+    margin: 5px 0;
+  }
+
+  h6 {
+    font-style: italic;
   }
 `;
 

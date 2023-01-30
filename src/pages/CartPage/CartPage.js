@@ -3,12 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem";
 
-const CartPage = ({ cart, setCart }) => {
-  const totalCart = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-
+const CartPage = ({ cart, setCart, totalCart }) => {
   if (cart.length < 1) {
     return (
       <Wrapper className="page-100">
@@ -37,8 +32,9 @@ const CartPage = ({ cart, setCart }) => {
         );
       })}
 
-      <div className="total">{totalCart}</div>
-      <Link to="/checkout" onClick={() => setCart({ ...cart, totalCart })}>
+      <div className="total">Total: R$ {totalCart}</div>
+
+      <Link className="checkout" to="/checkout">
         Ir para checkout
       </Link>
     </Wrapper>
@@ -46,10 +42,13 @@ const CartPage = ({ cart, setCart }) => {
 };
 
 const Wrapper = styled.div`
-  width: 375px;
-  padding: 20px;
-  background-color: yellow;
+  margin: auto;
+  background-color: #fbe4f5;
   height: 100vh;
+  width: 375px;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
   .empty {
     text-align: center;
     h2 {
@@ -57,7 +56,24 @@ const Wrapper = styled.div`
       text-transform: none;
     }
   }
-  .section {
+
+  .close {
+    background-color: lightslategray;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+
+  .total {
+    margin: 20px 0;
+  }
+  .checkout {
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    box-sizing: border-box;
   }
 `;
 

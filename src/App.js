@@ -13,14 +13,18 @@ import Payment from "./pages/CheckoutPage/PaymentMade";
 export default function App() {
   const [token, setToken] = useState("");
   const [user, setUser] = useState("");
-  const [cart, setCart] = useState({}); //usar cart.quantity no carrinho da navBar
-  const [nameCard, setNameCard] = useState("")
-  const [numberCard, setNumberCard] = useState("")
-  const [validateCard, setValidateCard] = useState("")
-  const [cvcCard, setCvcCard] = useState("")
-  const [typePayment, setTypePayment] = useState()
-  // const [cart, setCart] = useState([]);
-  const [quantity, setQuantity] = useState(1);
+  const [nameCard, setNameCard] = useState("");
+  const [numberCard, setNumberCard] = useState("");
+  const [validateCard, setValidateCard] = useState("");
+  const [cvcCard, setCvcCard] = useState("");
+  const [typePayment, setTypePayment] = useState();
+  const [cart, setCart] = useState([]);
+
+  const totalCart = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  console.log(cart);
 
   useEffect(() => {
     localStorage.setItem("token", JSON.stringify(token));
@@ -37,36 +41,42 @@ export default function App() {
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/products" element={<HomePage />} />
+            <Route
+              path="/products"
+              element={<HomePage setCart={setCart} cart={cart} />}
+            />
             <Route
               path="/cart"
-              element={<CartPage cart={cart} setCart={setCart} />}
+              element={
+                <CartPage cart={cart} setCart={setCart} totalCart={totalCart} />
+              }
             />
             <Route
               path="/product/:id"
+              element={<ProductPage cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/checkout"
               element={
-                <ProductPage
+                <Checkout
                   cart={cart}
                   setCart={setCart}
-                  quantity={quantity}
-                  setQuantity={setQuantity}
+                  nameCard={nameCard}
+                  setNameCard={setNameCard}
+                  NumberCard={numberCard}
+                  setNumberCard={setNumberCard}
+                  validateCard={validateCard}
+                  setValidateCard={setValidateCard}
+                  cvcCard={cvcCard}
+                  setCvcCard={setCvcCard}
+                  typePayment={typePayment}
+                  setTypePayment={setTypePayment}
+                  user={user}
+                  token={token}
+                  totalCart={totalCart}
                 />
               }
             />
-            <Route path="/checkout" element={<Checkout 
-            nameCard={nameCard}
-            setNameCard={setNameCard}
-            NumberCard={numberCard}
-            setNumberCard={setNumberCard}
-            validateCard={validateCard}
-            setValidateCard={setValidateCard}
-            cvcCard={cvcCard}
-            setCvcCard={setCvcCard}
-            typePayment={typePayment}
-            setTypePayment={setTypePayment}
-            user={user}
-            token={token}
-            />} />
             <Route path="/payment" element={<Payment />} />
           </Routes>
         </BrowserRouter>

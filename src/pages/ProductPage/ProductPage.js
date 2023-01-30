@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
 
-const Product = ({ cart, setCart, quantity, setQuantity }) => {
+const Product = ({ setCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  // const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -28,14 +29,15 @@ const Product = ({ cart, setCart, quantity, setQuantity }) => {
   };
 
   const handleClick = () => {
-    setCart({ ...product, quantity });
-    console.log(cart);
+    setCart((prev) => [...prev, { ...product, quantity }]);
+    setQuantity(1);
+    navigate("/products");
   };
   return (
     <Container>
       <Wrapper>
         <ImgContainer>
-          <Image src={product.img} />
+          <Image src={product.image} />
         </ImgContainer>
         <InfoContainer>
           <Title>{product.title}</Title>
@@ -59,30 +61,41 @@ const Product = ({ cart, setCart, quantity, setQuantity }) => {
 export default Product;
 
 const Container = styled.div`
-  background-color: yellow;
+  margin: auto;
+  background-color: #fbe4f5;
   height: 100vh;
   width: 375px;
+  color: black;
 `;
 
 const Wrapper = styled.div`
   padding: 20px;
+
+  /* margin: auto; */
 `;
 
-const ImgContainer = styled.div``;
+const ImgContainer = styled.div`
+  /* margin: auto; */
+  width: 200px;
+`;
 
 const Image = styled.img`
   width: 100%;
   object-fit: cover;
 `;
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div`
+  /* margin: auto; */
+`;
 
 const Title = styled.h1`
   margin: 10px 0 20px 0;
   font-weight: 200;
 `;
 
-const Desc = styled.p``;
+const Desc = styled.p`
+  margin: 20px 0;
+`;
 
 const Price = styled.span`
   font-weight: 100;
@@ -105,6 +118,9 @@ const AmountContainer = styled.div`
   display: flex;
   align-items: center;
   font-weight: 700;
+  div {
+    cursor: pointer;
+  }
 `;
 
 const Amount = styled.span`
@@ -119,8 +135,10 @@ const Amount = styled.span`
 `;
 
 const Button = styled.button`
+  margin-left: 10px;
   padding: 15px;
   border: 2px solid teal;
+  border-radius: 5px;
   background-color: white;
   cursor: pointer;
   font-weight: 500;
