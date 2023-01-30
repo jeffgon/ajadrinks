@@ -91,14 +91,14 @@ export default function HomePage(){
                     <MiniProductsContaniner>
                         
                         {cocktailFiltered.map(p => (
-                            <Product _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id}_id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
 
                     <h3>Autoráis</h3>
                     <MiniProductsContaniner>
                         {copyrightFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
 
@@ -106,7 +106,7 @@ export default function HomePage(){
                     <h3>Long neck</h3>
                     <MiniProductsContaniner>
                         {beerFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
 
@@ -114,19 +114,19 @@ export default function HomePage(){
                     <h3>Shots</h3>
                     <MiniProductsContaniner>
                         {shotFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
                     <h3>Whiskey</h3>
                     <MiniProductsContaniner>
                         {whiskeyFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
                     <h3>Vinhos</h3>
                     <MiniProductsContaniner>
                         {wineFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
 
@@ -134,7 +134,7 @@ export default function HomePage(){
                     <h3>Garrafas</h3>
                     <MiniProductsContaniner>
                         {bottleFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
 
@@ -142,13 +142,15 @@ export default function HomePage(){
                     <h3>Drinks -18</h3>
                     <MiniProductsContaniner>
                         {noalcoholFiltered.map(p => (
-                            <Product key={p._idUser} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
+                            <Product key={p._id} _id={p._id} title={p.title} image={p.image} category={p.category} shortdescription={p.shortdescription} description={p.description} price={p.price}  />
                         ))}
                     </MiniProductsContaniner>
                     
                 </ProductsContainer>
 
             </MainContainer>
+
+
         </>
     )
 
