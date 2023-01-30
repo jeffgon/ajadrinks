@@ -20,7 +20,6 @@ export default function Checkout({
   setCvcCard,
   typePayment,
   setTypePayment,
-  user,
   token,
   cart,
   totalCart,
@@ -37,8 +36,8 @@ export default function Checkout({
       validateCard,
       cvcCard,
       typePayment,
-      user,
     };
+
     const config = {
       headers: {
         Authorization: `${token}`,
@@ -47,13 +46,14 @@ export default function Checkout({
     const promise = axios.post(url, body, config);
     promise.then((res) => {
       console.log("Pagamento transferido!", res);
-      navigate("/payment");
+      alert("pagamento realizado com sucesso");
+      navigate("/products");
     });
     promise.catch((err) => {
       console.log("Algo deu errado!", err);
     });
   }
-  console.log("cartCheckout", cart);
+  // console.log("cartCheckout", cart);
 
   return (
     <CheckoutContainer>
@@ -81,7 +81,7 @@ export default function Checkout({
           <div>
             <h1>Informações do Cartão</h1>
             <input
-              type="tel"
+              type="number"
               value={numberCard}
               placeholder="Número do cartão"
               onChange={(e) => setNumberCard(e.target.value)}

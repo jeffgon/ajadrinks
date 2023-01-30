@@ -63,7 +63,7 @@ export default function App() {
                   setCart={setCart}
                   nameCard={nameCard}
                   setNameCard={setNameCard}
-                  NumberCard={numberCard}
+                  numberCard={numberCard}
                   setNumberCard={setNumberCard}
                   validateCard={validateCard}
                   setValidateCard={setValidateCard}
@@ -77,7 +77,7 @@ export default function App() {
                 />
               }
             />
-            <Route path="/payment" element={<Payment />} />
+            {/* <Route path="/payment" element={<Payment />} /> */}
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
