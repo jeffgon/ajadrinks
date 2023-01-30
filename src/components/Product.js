@@ -1,5 +1,5 @@
 //import React, { useContext, useEffect } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { mainColor, txtColor } from "../constants/colors.js"
 import styled from "styled-components";
 import {fontTitles} from "../constants/fonts.js"
@@ -7,8 +7,10 @@ import { useState } from "react";
 
 
 export default function Product(props){
-    const {key, title, image, category, shortdescription, description, price} = props;
+    const {_id, title, image, category, shortdescription, description, price} = props;
     const [acc, setAcc] = useState(0);
+    const navigate = useNavigate();
+    console.log(_id);
 
     function sum(){
         const result = acc + 1;
@@ -20,14 +22,17 @@ export default function Product(props){
         if(result > -1){
             setAcc(result);
         }
-        
+    }
+
+    function openInfo(){
+        navigate(`/product/${_id}`)
     }
 
     return(
         <ProductContainer>
-            <Image src={image} alt="imagem do produto"/>
+            <Image src={image} onClick={openInfo} alt="imagem do produto"/>
             <Text>
-                <Title>{title}</Title>
+                <Title onClick={openInfo} >{title}</Title>
                 <ShortDescription>{shortdescription}</ShortDescription>
                 <Value>R$:{price}</Value>
                 <CounterDisplay>
