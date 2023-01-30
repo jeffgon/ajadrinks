@@ -64,3 +64,24 @@ display: flex;
 margin-right: 10px;
 //flex-wrap: wrap;
 `
+
+export const Footer = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+
+position: fixed;
+bottom: 15px;
+z-index: 1;
+
+button{
+  height: 24px;
+  width: 130px;
+  border-radius: 10px;
+  background-color: ${buttonColor};
+
+  font-size: 18px;
+ // font-family: ${fontTitles};
+}
+`

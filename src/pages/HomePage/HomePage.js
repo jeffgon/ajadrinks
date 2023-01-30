@@ -2,16 +2,16 @@ import AuthContext from "../../contexts/AuthContext";
 import UserContext from "../../contexts/UserContext";
 import { BASE_URL } from "../../constants/urls";
 import { useContext, useEffect, useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../components/Heander.js"
-import { MainContainer, TopContainer, ProductsContainer, MiniProductsContaniner } from "./styled.js"
+import { MainContainer, TopContainer, ProductsContainer, MiniProductsContaniner, Footer } from "./styled.js"
 import capaHome from "../../assets/capaHome.png"
 import Product from "../../components/Product.js";
 
 export default function HomePage(){
 
- //   const navigate = useNavigate();
+    const navigate = useNavigate();
     const { token, setToken } = useContext(AuthContext);
     const { user, setUser } = useContext(UserContext);
     const [ productsList, setProductsList ]= useState(undefined);
@@ -74,6 +74,10 @@ export default function HomePage(){
 
         const noalcoholFiltered = productsList.filter(product => product.category === "noalcohol");
         //console.log(noalcoholFiltered);
+
+        function goToCart(){
+            navigate("/cart")
+        }
 
     return(
         <>
@@ -149,6 +153,13 @@ export default function HomePage(){
                 </ProductsContainer>
 
             </MainContainer>
+
+            <Footer>
+                <button>
+                    {/* <span>Ir para o carrinho  </span> */}
+                    <span><ion-icon name="cart-outline" onClick={goToCart}></ion-icon></span>
+                </button>
+            </Footer>
 
 
         </>
